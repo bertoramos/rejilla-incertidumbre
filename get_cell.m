@@ -1,13 +1,10 @@
-function [i,j] = get_cell(x, y, ncell, world_size)
-    if x > world_size; x = world_size; end
-    if y > world_size; y = world_size; end
-    if x < 0; x = 0; end
-    if y < 0; y = 0; end
+function [i,j] = get_cell(x, y, incX, incY)
+    %dimcell = world_size/ncell;
     
-
-    dimcell = world_size/ncell;
+    j = floor(x/incX)+1;
+    i = floor(y/incY)+1;
     
-    i = ceil(x/dimcell);
-    j = ceil(y/dimcell);
+    %if i <= 0; i=1; end
+    %if j <= 0; j=1; end   
 end
 
