@@ -4,9 +4,7 @@ clf;
 
 [pos, obs] = ExtractPathScans('mydata2021_03_06_16_31_28.log', 0);
 
-world_size = 16;
 ncell = 30;
-dim_cell = world_size/ncell;
 
 rejilla = zeros(ncell+1, ncell+1);
 
