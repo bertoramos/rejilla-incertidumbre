@@ -1,9 +1,0 @@
-function [path] = get_path(map, origin, target)
-    path = [origin];
-    while(~isempty(path))
-        neighbours = nearest_neighbours(altura, path(1));
-        path(1) = [];
-        
-    en
-end
-
