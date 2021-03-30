@@ -1,5 +1,5 @@
-function [path] = get_path(map, origin, target)
-        if map(origin(2), origin(1)) > 0
+function [path] = get_path(map, origin, target, n)
+    if map(origin(2), origin(1)) > 0
         fprintf("No valid origin point\n")
         return
     end
@@ -19,15 +19,13 @@ function [path] = get_path(map, origin, target)
         current_node = queue(1, :);
         queue(1, :) = [];
         
-        disp(current_node);
-        
+        path(end+1, :) = current_node;
         if (isequal(current_node, target))
             disp("Target found");
             break
         end
         
-        path(end+1, :) = current_node;
-        neighbors = nearest_neighbours(map, current_node);
+        neighbors = nearest_neighbours(map, current_node, n);
         
         for i = 1:size(neighbors, 1)
             row = neighbors(i,:);
