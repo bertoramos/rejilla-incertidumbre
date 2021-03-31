@@ -1,13 +1,4 @@
-function [path] = get_path(map, origin, target, n)
-    if map(origin(2), origin(1)) > 0
-        fprintf("No valid origin point\n")
-        return
-    end
-    if map(target(2), target(1)) > 0
-        fprintf("No valid origin point\n")
-        return
-    end
-
+function [path, exit_flag] = get_path(map, origin, target, n)
     path = [origin];
     queue = [origin];
     
@@ -15,13 +6,26 @@ function [path] = get_path(map, origin, target, n)
     
     visited = [origin];
     
+    exit_status = "Not valid path found";
+    exit_flag = false;
+
+    if map(origin(2), origin(1)) > 0
+        fprintf("No valid origin point\n")
+        return
+    end
+    if map(target(2), target(1)) > 0
+        fprintf("No valid target point\n")
+        return
+    end
+    
     while ~isempty(queue)
         current_node = queue(1, :);
         queue(1, :) = [];
         
         path(end+1, :) = current_node;
         if (isequal(current_node, target))
-            disp("Target found");
+            exit_status = "Target found";
+            exit_flag = true;
             break
         end
         
@@ -44,6 +48,7 @@ function [path] = get_path(map, origin, target, n)
             end
         end
     end
-
+    
+    disp(exit_status);
 end
 
