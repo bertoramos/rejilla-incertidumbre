@@ -26,5 +26,5 @@ if is_valid
     map_img(target(1,1), target(1,2), :) = [0,0,1];
     
     imshow(1-map_img);
-
+    truesize([500, 500]);
 end
