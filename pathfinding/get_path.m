@@ -36,27 +36,6 @@ function [costes, exit_flag] = get_path(map, origin, target, n)
             queue = cat(1, queue, row);
         end
         
-        
-        %disp(current_node);
-        
-        %{
-        for i = 1:size(neighbors, 1)
-            row = neighbors(i,:);
-            
-            is_row_in_visited = 0;
-            for j = 1:size(visited, 1)
-                if row(1) == visited(j, 1) && row(2) == visited(j, 2)
-                    is_row_in_visited = 1;
-                    break;
-                end
-            end
-            
-            if is_row_in_visited == 0
-                visited(end+1, :) = row; 
-                queue = cat(1, queue, row);
-            end
-        end
-        %}
     end
     
     disp(exit_status);

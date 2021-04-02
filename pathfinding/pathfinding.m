@@ -27,4 +27,8 @@ if is_valid
     
     imshow(1-map_img);
     truesize([500, 500]);
+    axis on;
+    xticks(0:1:ncell);
+    yticks(0:1:ncell);
+    grid on;
 end
